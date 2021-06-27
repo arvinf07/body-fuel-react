@@ -1,12 +1,11 @@
 import './App.css';
+import body_fuel from './body_fuel.png'
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        <img alt="bodyfuel logo" id='App-logo' src="/Users/arvinf07/Desktop/body_fuel.png"/>
-
+      <img alt="bodyfuel logo" id='App-logo' src={body_fuel}/>
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
