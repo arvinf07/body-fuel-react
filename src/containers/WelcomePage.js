@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import LoginForm from '../components/LoginForm'
+import NewUserForm from '../components/NewUserForm'
+
 
 export default function WelcomePage({setLogIn, setMeals}){
   const [newForm, setNewForm] = useState(false)
@@ -7,7 +9,9 @@ export default function WelcomePage({setLogIn, setMeals}){
   return(
     <div id='welcome'>
       <h2>Create meals that fuel your body. For you and the world.</h2>
-      <LoginForm setLogIn={setLogIn} setMeals={setMeals} />
+      {newForm ? <NewUserForm setNewForm={setNewForm} />
+      : <LoginForm setLogIn={setLogIn} setMeals={setMeals} setNewForm={setNewForm} />
+      }
     </div>
   )
 }

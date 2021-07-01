@@ -1,6 +1,6 @@
 import {useState} from "react"
 
-export default function LoginForm(){
+export default function LoginForm({setNewForm}){
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
@@ -38,7 +38,7 @@ export default function LoginForm(){
       Password: <input value={password} onChange={onChange} name='password' type='password' required='true' />
       <input type='submit' value='Login'/>
       <br/>
-      <span>Don't have an account? <button>Create one!</button></span>
+      <span>Don't have an account? <button onClick={() => setNewForm(true)}>Create one!</button></span>
     </form>
   )
 
