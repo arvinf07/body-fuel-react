@@ -13,8 +13,26 @@ export default function LoginForm(){
     }
   }
 
+  const loginUser = (event) => {
+    event.preventDefault()
+    const body = {username, password}
+    console.log(body)
+    const configObject = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(body)
+    }; 
+    fetch(`http://127.0.0.1:3000/login`, configObject)
+    .then(resp => resp.json())
+    .then(json => console.log(json))
+    
+  }
+
   return(
-    <form id='login-form'>
+    <form id='login-form' onSubmit={loginUser}>
       <h5>Get started by logging in</h5>
       Username: <input value={username} onChange={onChange} name='username' type='text' required='true'/>
       Password: <input value={password} onChange={onChange} name='password' type='password' required='true' />
