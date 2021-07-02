@@ -19,8 +19,27 @@ export default function NewUserForm({setNewForm}){
     });
   }
 
+  const createUser = (e) => {
+    e.preventDefault()
+    const body = {user: state}
+    console.log(body)
+    const configObject = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(body)
+    }; 
+    fetch(`http://127.0.0.1:3000/users`, configObject)
+    .then(resp => resp.json())
+    .then(json => console.log(json))
+    .catch( error => alert(error)) //can errors be sent through json
+
+  }
+
   return(
-    <form id="new-user-form">
+    <form id="new-user-form" onSubmit={createUser}>
       Create New User
       <br/>
       <label for="username">Username: </label>
@@ -31,7 +50,7 @@ export default function NewUserForm({setNewForm}){
       <br/>
       Height: <input onChange={onChange} name='height' type='number' required='true' />
       <br/>
-      Age: onChange={onChange} <input name='age' type='number' required='true' />
+      Age: <input onChange={onChange} name='age' type='number' required='true' />
       <br/>
       Gender:  
       <label for="male">Male</label>
