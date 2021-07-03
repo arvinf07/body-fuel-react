@@ -6,7 +6,7 @@ const renderMeals = (meals = []) => {
 
 export default function FoodTable(props){
     return(
-      <table style="width:50%">
+      <table  width={50}>
         {renderMeals()}
       </table>
     )

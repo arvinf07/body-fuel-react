@@ -1,6 +1,6 @@
 import {useState} from "react"
 
-export default function LoginForm({setNewForm}){
+export default function LoginForm({setNewForm, setLogin}){
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
@@ -16,7 +16,6 @@ export default function LoginForm({setNewForm}){
   const loginUser = (event) => {
     event.preventDefault()
     const body = {username, password}
-    console.log(body)
     const configObject = {
       method: "POST",
       headers: {
@@ -27,7 +26,10 @@ export default function LoginForm({setNewForm}){
     }; 
     fetch(`http://127.0.0.1:3000/login`, configObject)
     .then(resp => resp.json())
-    .then(json => console.log(json))
+    .then(json => {
+      setLogin(true)
+      console.log(json)})
+    .catch(message => alert(message))
     
   }
 

@@ -2,13 +2,13 @@ import AddButton from '../components/AddButton'
 import FoodRow from '../components/FoodRow'
 
 const renderMealFoods = ( (mealFoods) => {
-  return mealFoods.map( (mealFood) => <FoodRow props={...mealFood}/> )
+  return mealFoods.map( (mealFood) => <FoodRow foodData={mealFood}/> )
 })
 
 
 export default function MealContainer({name, mealFoods}){
   return(
-    <tr className={props.name}>
+    <tr className={name}>
       {renderMealFoods(mealFoods)}
       <AddButton mealName={name} />
     </tr>
