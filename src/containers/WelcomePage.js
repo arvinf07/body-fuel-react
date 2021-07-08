@@ -3,14 +3,14 @@ import LoginForm from '../components/LoginForm'
 import NewUserForm from '../components/NewUserForm'
 
 
-export default function WelcomePage({setLogin, setMeals}){
+export default function WelcomePage({setLogin, setMeals, setUser}){
   const [newForm, setNewForm] = useState(false)
 
   return(
     <div id='welcome'>
       <h2>Create meals that fuel your body. For you and the world.</h2>
-      {newForm ? <NewUserForm setLogin={setLogin} setNewForm={setNewForm} />
-      : <LoginForm setLogin={setLogin} setMeals={setMeals} setNewForm={setNewForm} />
+      {newForm ? <NewUserForm setUser={setUser} setLogin={setLogin} setNewForm={setNewForm} />
+      : <LoginForm setLogin={setLogin} setUser={setUser} setMeals={setMeals} setNewForm={setNewForm} />
       }
     </div>
   )

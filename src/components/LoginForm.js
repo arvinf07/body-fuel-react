@@ -1,6 +1,6 @@
 import {useState} from "react"
 
-export default function LoginForm({setNewForm, setLogin}){
+export default function LoginForm({setNewForm, setLogin, setUser}){
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
@@ -28,7 +28,9 @@ export default function LoginForm({setNewForm, setLogin}){
     .then(resp => resp.json())
     .then(json => {
       setLogin(true)
-      console.log(json)})
+      setUser(json)
+      console.log(json)
+    })
     .catch(message => alert(message))
     
   }

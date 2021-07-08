@@ -7,14 +7,14 @@ import FoodTable  from "./containers/FoodTable";
 function App() {
   const [loggedIn, setLogin] = useState(false)
   const [meals, setMeals] = useState([])
-
+  const [user, setUser] = useState({})
 
   return (
     <div className="App">
       <header className="App-header">
         <img alt="bodyfuel logo" id='App-logo' src={body_fuel}/>
       </header>
-      { !loggedIn ? <WelcomePage setLogin={setLogin} setMeals={setMeals} /> : <FoodTable /> }
+      { !loggedIn ? <WelcomePage setLogin={setLogin} setUser={setUser} setMeals={setMeals} /> : <FoodTable user={user} /> }
       
     </div>
   );
