@@ -7,6 +7,8 @@ const renderMealFoods = ( (mealFoods) => {
 
 
 export default function MealContainer({name, mealFoods}){
+
+  
   return(
     <tr className={name}>
       {renderMealFoods(mealFoods)}
