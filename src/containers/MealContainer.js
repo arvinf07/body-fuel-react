@@ -7,16 +7,18 @@ export default function MealContainer({meal}){
   const {name, mealFoods} = meal
 
 
-  const renderMealFoods = ( (mealFoods = []) => {
+  const renderMealFoods = ( (mealFoods = ["chicken", 'a']) => {
     return mealFoods.map( (mealFood) => <FoodRow foodData={mealFood}/> )
   })
   
   return(
-    <tr className={name}>
-      <th>{name}</th>
+    <>
+      <th className={name}>
+        {name}
+      </th>
       {renderMealFoods(mealFoods)}
       <AddButton mealName={name} />
-    </tr>
+    </>
   )
 }
 

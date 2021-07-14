@@ -2,6 +2,7 @@
   text-align: center;
 }
 
+
 #App-logo {
   height: 30vmin;
   pointer-events: none;
@@ -10,8 +11,8 @@
 table, th, td {
   border: 1px solid black; 
   border-collapse: collapse;
-  /* visibility: hidden; */
 }
+
 
 table {
   border-spacing: 5px;

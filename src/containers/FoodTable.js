@@ -9,7 +9,7 @@ export default function FoodTable({meals}){
   }
 
   return(
-    <table width={50}>
+    <table width={600}>
       {renderMeals(meals)}
     </table>
   )
