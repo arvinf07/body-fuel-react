@@ -7,7 +7,7 @@ export default function MealContainer({meal}){
   const {name, mealFoods} = meal
 
 
-  const renderMealFoods = ( (mealFoods = ["chicken", 'a']) => {
+  const renderMealFoods = ( (mealFoods = []) => {
     return mealFoods.map( (mealFood) => <FoodRow foodData={mealFood}/> )
   })
   

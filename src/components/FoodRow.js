@@ -4,7 +4,7 @@ export default function FoodRow({name, cal, fat, carb, pro}){
   return(
     <tr>
       <td>
-      chicken    
+      chicken(hardcoded)    
       <DeleteButton />
       </td>
     </tr>
