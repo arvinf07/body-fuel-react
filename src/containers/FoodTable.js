@@ -1,4 +1,5 @@
 import MealContainer from './MealContainer'
+import NewFoodForm from '../components/NewFoodForm'
 import { useState, useEffect } from "react";
 
 const renderMeals = (meals = []) => {
@@ -8,10 +9,7 @@ const renderMeals = (meals = []) => {
 export default function FoodTable({meals}){
   const [foods, setFoods] = useState([])
 
-  useEffect(() => {
-    fetchFoods()
-    console.log(foods)
-  }, [])
+  useEffect(() => fetchFoods(), [])
 
   function fetchFoods(){
     fetch('http://127.0.0.1:3000/foods')
@@ -23,6 +21,7 @@ export default function FoodTable({meals}){
   return(
     <table width={600}>
       {renderMeals(meals)}
+      <NewFoodForm foods={foods} />
     </table>
   )
 
