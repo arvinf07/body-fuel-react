@@ -3,6 +3,7 @@ import body_fuel from './body_fuel.png'
 import React, {useState, useEffect} from 'react';
 import WelcomePage from './containers/WelcomePage';
 import FoodTable  from "./containers/FoodTable";
+import  NewFoodForm from "./components/NewFoodForm";
 
 function App() {
   const [loggedIn, setLogin] = useState(false)
@@ -30,7 +31,7 @@ function App() {
       ? <FoodTable meals={user.user.meals} />
       : <WelcomePage setLogin={setLogin} setLocalStorage={setLocalStorage} setUser={setUser} /> 
       }
-      
+      {<NewFoodForm />}
     </div>
   );
 }

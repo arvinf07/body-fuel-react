@@ -7,8 +7,7 @@ import FoodRow from '../components/FoodRow'
 
 export default function MealContainer({meal, foods}){
   const {name, mealFoods} = meal
-  const {foodForm, setFoodForm} = useState(false)
-
+  const [foodForm, setFoodForm] = useState(false)
 
   const renderMealFoods = ( (mealFoods = []) => {
     return mealFoods.map( (mealFood) => <FoodRow foodData={mealFood}/> )
@@ -20,7 +19,10 @@ export default function MealContainer({meal, foods}){
         {name}
       </th>
       {renderMealFoods(mealFoods)}
-      {foodForm ? <NewFoodForm foods={foods} setFoodForm={setFoodForm}/> : <AddButton mealName={name} setFoodForm={setFoodForm} />}
+      {foodForm 
+      ? <NewFoodForm foods={foods} setFoodForm={setFoodForm} /> 
+      : <AddButton mealName={name} setFoodForm={setFoodForm} />
+      }
     </>
   )
 }
