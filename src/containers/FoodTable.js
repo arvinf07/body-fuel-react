@@ -1,13 +1,14 @@
 import MealContainer from './MealContainer'
-import NewFoodForm from '../components/NewFoodForm'
 import { useState, useEffect } from "react";
 
-const renderMeals = (meals = []) => {
-  return meals.map( (meal) => <MealContainer meal={meal} /> )
-}
 
 export default function FoodTable({meals}){
   const [foods, setFoods] = useState([])
+
+  const renderMeals = (meals = []) => {
+    return meals.map( (meal) => <MealContainer foods={foods} meal={meal} /> )
+  }
+  
 
   useEffect(() => fetchFoods(), [])
 
@@ -21,7 +22,6 @@ export default function FoodTable({meals}){
   return(
     <table width={600}>
       {renderMeals(meals)}
-      <NewFoodForm foods={foods} />
     </table>
   )
 

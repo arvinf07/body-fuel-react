@@ -1,10 +1,13 @@
+import { useState } from 'react'
 import AddButton from '../components/AddButton'
+import NewFoodForm from '../components/NewFoodForm'
 import FoodRow from '../components/FoodRow'
 
 
 
-export default function MealContainer({meal}){
+export default function MealContainer({meal, foods}){
   const {name, mealFoods} = meal
+  const {foodForm, setFoodForm} = useState(false)
 
 
   const renderMealFoods = ( (mealFoods = []) => {
@@ -17,7 +20,7 @@ export default function MealContainer({meal}){
         {name}
       </th>
       {renderMealFoods(mealFoods)}
-      <AddButton mealName={name} />
+      {foodForm ? <NewFoodForm foods={foods} setFoodForm={setFoodForm}/> : <AddButton mealName={name} setFoodForm={setFoodForm} />}
     </>
   )
 }
