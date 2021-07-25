@@ -7,7 +7,7 @@ export default function NewFoodForm({toggleFoodForm, foods = []}){
   }
 
   return(
-    <form>
+    <div className='new-food-form'>
       <select name="food_name" id="food">
         {createOptions()}
       </select>
@@ -15,6 +15,6 @@ export default function NewFoodForm({toggleFoodForm, foods = []}){
       <input type='number' min='1' required='true' />
       <input class='btn btn-primary btn-sm' type="submit" value="Log Food" />
       <button onClick={toggleFoodForm} className="remove-btn btn btn-danger btn-sm cancel-btn">Cancel</button>
-    </form>
+    </div>
   )
 }
