@@ -31,7 +31,6 @@ function App() {
       ? <FoodTable meals={user.user.meals} />
       : <WelcomePage setLogin={setLogin} setLocalStorage={setLocalStorage} setUser={setUser} /> 
       }
-      {<NewFoodForm />}
     </div>
   );
 }

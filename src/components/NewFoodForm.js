@@ -1,7 +1,6 @@
 
 
-export default function NewFoodForm({foods = []}){
-  console.log(foods)
+export default function NewFoodForm({toggleFoodForm, foods = []}){
 
   const createOptions = () => {
     return foods.map( ({name, id}) => <option value={id}>{name}</option>)
@@ -15,7 +14,7 @@ export default function NewFoodForm({foods = []}){
       Quantity(in grams)
       <input type='number' min='1' required='true' />
       <input class='btn btn-primary btn-sm' type="submit" value="Log Food" />
-      <button className="remove-btn btn btn-danger btn-sm cancel-btn">Cancel</button>
+      <button onClick={toggleFoodForm} className="remove-btn btn btn-danger btn-sm cancel-btn">Cancel</button>
     </form>
   )
 }
