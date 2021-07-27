@@ -8,8 +8,6 @@ import FoodRow from '../components/FoodRow'
 export default function MealContainer({meal, foods, foodForm, setFoodForm}){
   const {name, mealFoods} = meal
 
-  console.log(foodForm)
-
   const renderMealFoods = ( (mealFoods = []) => {
     return mealFoods.map( (mealFood) => <FoodRow foodData={mealFood}/> )
   })
