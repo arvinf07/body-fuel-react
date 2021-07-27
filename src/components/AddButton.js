@@ -1,11 +1,11 @@
 
 
-export default function AddButton({name, toggleFoodForm}){
+export default function AddButton({mealName, setFoodForm}){
 
   return(
-    <tr className={name}>
+    <tr>
       <td>
-        <button onClick={toggleFoodForm} class="btn btn-primary btn-sm" type="button">Add Food ++</button>
+        <button onClick={() => setFoodForm(mealName)} class="btn btn-primary btn-sm" type="button">Add Food ++</button>
       </td>
     </tr>
   )

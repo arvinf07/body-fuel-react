@@ -5,13 +5,10 @@ import FoodRow from '../components/FoodRow'
 
 
 
-export default function MealContainer({meal, foods}){
+export default function MealContainer({meal, foods, foodForm, setFoodForm}){
   const {name, mealFoods} = meal
-  const [foodForm, setFoodForm] = useState(false)
 
-  const toggleFoodForm = () => {
-    setFoodForm((prevState) => !prevState)
-  }
+  console.log(foodForm)
 
   const renderMealFoods = ( (mealFoods = []) => {
     return mealFoods.map( (mealFood) => <FoodRow foodData={mealFood}/> )
@@ -24,8 +21,8 @@ export default function MealContainer({meal, foods}){
       </th>
       {renderMealFoods(mealFoods)}
       {foodForm 
-      ? <NewFoodForm foods={foods} toggleFoodForm={toggleFoodForm} /> 
-      : <AddButton mealName={name} toggleFoodForm={toggleFoodForm} />
+      ? <NewFoodForm foods={foods} setFoodForm={setFoodForm} /> 
+      : <AddButton mealName={name} setFoodForm={setFoodForm} />
       }
     </>
   )
