@@ -6,7 +6,6 @@ export default function NewFoodForm({setFoodForm, foods = []}){
     amount: 0
   })
 
-  console.log(state)
   const onChange = (e) => {
     const value = e.target.value;
     setState({

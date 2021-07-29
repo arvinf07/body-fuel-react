@@ -18,7 +18,7 @@ export default function FoodTable({meals}){
       }
     })
   }
-  
+    
   function fetchFoods(){
     fetch('http://127.0.0.1:3000/foods')
     .then(resp => resp.json())

@@ -15,9 +15,10 @@ function App() {
   }                 
                             
   useEffect(() => {
+    // when loging out make sure to clear localStorage
     if(localStorage.getItem('loggedIn')){
       setLogin(true)
-      setUser(JSON.parse(localStorage.getItem('User'))) // localStorage can only store strings
+      setUser(JSON.parse(localStorage.getItem('User')))
     }
   }, [])
 
