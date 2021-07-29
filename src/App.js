@@ -8,6 +8,15 @@ function App() {
   const [loggedIn, setLogin] = useState(false)
   const [user, setUser] = useState({})
 
+  // const addMealFood = (mealFood) => {
+  //   setUser((prevState) => {
+  //     return {
+  //       ...prevState,
+  //       prevState.meals: ...prevState.meals
+  //     }
+  //   })
+  // }
+
   const setLocalStorage = (user) => {
     localStorage.setItem('loggedIn', 'true')
     localStorage.setItem('User', JSON.stringify({user})) 

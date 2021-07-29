@@ -1,19 +1,23 @@
 import AddButton from '../components/AddButton'
 import NewFoodForm from '../components/NewFoodForm'
 import FoodRow from '../components/FoodRow'
+import React, {useState} from 'react';
+
 
 
 
 export default function MealContainer({meal, foods, foodForm, setFoodForm}){
-  console.log(meal)
-  const {name, mealFoods} = meal
+  const {name, id} = meal
+  const [mealFoods, setMealFoods] = useState([meal.mealFoods])
+
 
   const renderMealFoods = ( (mealFoods = []) => {
     return mealFoods.map( (mealFood) => <FoodRow foodData={mealFood}/> )
   })
 
-  const createMealFood = () => {
-    const body = {meal: {name, meal_foods_attributes: {food_id: foodId, amount: foodAmount}}}
+  const createMealFood = (e, food_id, amount) => {
+    e.preventDefault()
+    const body = {meal: {name, meal_foods_attributes: {food_id, amount}}}
     const configObject = {
       method: "PATCH",
       headers: {
@@ -22,10 +26,10 @@ export default function MealContainer({meal, foods, foodForm, setFoodForm}){
       },
       body: JSON.stringify(body)
     }; 
-    fetch(`http://127.0.0.1:3000/meals/${meal.id}`, configObject)
+    fetch(`http://127.0.0.1:3000/meals/${id}`, configObject)
     .then(resp => resp.json())
     .then( meal_food => {
-      // add new mealfood to row
+      setMealFoods([...mealFoods, meal_food])
     })
     .catch( error => console.log(error))
   }
