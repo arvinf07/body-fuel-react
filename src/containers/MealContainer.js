@@ -8,15 +8,15 @@ import React, {useState} from 'react';
 
 export default function MealContainer({meal, foods, foodForm, setFoodForm}){
   const {name, id} = meal
-  const [mealFoods, setMealFoods] = useState([meal.mealFoods])
-
+  const [mealFoods, setMealFoods] = useState(meal.meal_foods)
+  console.log(mealFoods)
 
   const renderMealFoods = ( (mealFoods = []) => {
     return mealFoods.map( (mealFood) => <FoodRow foodData={mealFood}/> )
   })
 
-  const createMealFood = (e, food_id, amount) => {
-    e.preventDefault()
+  const createMealFood = ({food_id, amount}) => {
+
     const body = {meal: {name, meal_foods_attributes: {food_id, amount}}}
     const configObject = {
       method: "PATCH",
@@ -41,7 +41,7 @@ export default function MealContainer({meal, foods, foodForm, setFoodForm}){
       </th>
       {renderMealFoods(mealFoods)}
       {foodForm 
-      ? <NewFoodForm foods={foods} setFoodForm={setFoodForm} /> 
+      ? <NewFoodForm foods={foods} createMealFood={createMealFood} setFoodForm={setFoodForm} /> 
       : <AddButton mealName={name} setFoodForm={setFoodForm} />
       }
     </>
