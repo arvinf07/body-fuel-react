@@ -18,6 +18,7 @@ export default function LoginForm({setNewForm, setLogin, setUser, setLocalStorag
     const body = {username, password}
     const configObject = {
       method: "POST",
+      credentials: 'include',
       headers: {
         "Content-Type": "application/json",
         "Accept": "application/json"

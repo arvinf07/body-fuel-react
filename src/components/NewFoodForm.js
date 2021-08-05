@@ -2,7 +2,7 @@ import { useState } from "react";
 
 export default function NewFoodForm({createMealFood, setFoodForm, foods = []}){
   const [state, setState] = useState({
-    food_id: 0,
+    food_id: 1,
     amount: 0
   })
 

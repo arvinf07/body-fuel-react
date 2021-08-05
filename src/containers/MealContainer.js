@@ -20,6 +20,7 @@ export default function MealContainer({meal, foods, foodForm, setFoodForm}){
     const body = {meal: {name, meal_foods_attributes: {food_id, amount}}}
     const configObject = {
       method: "PATCH",
+      credentials: 'include',
       headers: {
         "Content-Type": "application/json",
         "Accept": "application/json"

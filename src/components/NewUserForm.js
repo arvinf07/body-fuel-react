@@ -25,6 +25,7 @@ export default function NewUserForm({setNewForm}){
     console.log(body)
     const configObject = {
       method: "POST",
+      credentials: 'include',
       headers: {
         "Content-Type": "application/json",
         "Accept": "application/json"
