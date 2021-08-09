@@ -34,7 +34,7 @@ export default function NewUserForm({setNewForm}){
     }; 
     fetch(`http://127.0.0.1:3000/users`, configObject)
     .then(resp => resp.json())
-    .then(json => console.log(json))
+    .then(json => console.log(json)) // setUserState to render the food table 
     .catch( error => alert(error)) //can errors be sent through json
 
   }

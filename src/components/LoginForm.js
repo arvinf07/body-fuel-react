@@ -28,10 +28,10 @@ export default function LoginForm({setNewForm, setLogin, setUser, setLocalStorag
     fetch(`http://127.0.0.1:3000/login`, configObject)
     .then(resp => resp.json())
     .then(user => {
+      console.log(user)
       setLogin(true)
       setUser(user)
-      setLocalStorage(user)
-      console.log(user)
+      // setLocalStorage(user)
     })
     .catch(message => alert(message))
     

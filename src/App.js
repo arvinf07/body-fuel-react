@@ -37,7 +37,7 @@ function App() {
         <img alt="bodyfuel logo" id='App-logo' src={body_fuel}/>
       </header>
       { loggedIn
-      ? <FoodTable meals={user.user.meals} />
+      ? <FoodTable meals={user.meals} />
       : <WelcomePage setLogin={setLogin} setLocalStorage={setLocalStorage} setUser={setUser} /> 
       }
     </div>
